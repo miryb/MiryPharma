@@ -113,6 +113,26 @@ namespace MiryPharma.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Green_Background_Phone_Wallpaper_16 {
+            get {
+                object obj = ResourceManager.GetObject("Green-Background-Phone-Wallpaper-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_wallpapers_14__1_ {
+            get {
+                object obj = ResourceManager.GetObject("green-wallpapers-14 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Laughter {
             get {
                 object obj = ResourceManager.GetObject("Laughter", resourceCulture);

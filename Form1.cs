@@ -12,10 +12,6 @@ namespace MiryPharma
 {
     public partial class HomePharmaForm : Form
     {
-        // Create a list for images
-        // List<Image> BannerImages;
-
-        // Create a queue for images
         Queue<Image> BannerImages;
 
         Timer myTimer;
@@ -31,10 +27,6 @@ namespace MiryPharma
 
         void PopulateBannerImages() 
         {
-            // Initialize the list
-            // BannerImages = new List<Image>();
-
-            // Initialize the queue
             BannerImages = new Queue<Image>();
 
             // Resources
@@ -42,9 +34,6 @@ namespace MiryPharma
 
             for (int i = 1; i <= 5; i++) 
             {
-                // Add to List
-                // BannerImages.Add((Image)rm.GetObject($"{i}"));
-
                 BannerImages.Enqueue((Image)rm.GetObject($"{i}"));
             }
         }

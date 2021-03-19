@@ -25,7 +25,7 @@ namespace MiryPharma
     public enum DrugHowToTakeEnum
     {
         Oral,
-        TopicalUse,
+        Topical,
         Nose,
         Eyes,
         Other
@@ -33,17 +33,19 @@ namespace MiryPharma
 
     public enum DrugAgeCategoryEnum
     {
+        Adults,
         Babies,
         Kids,
-        Adults
+        All,
+        Other
     }
 
     public enum DrugFormatEnum
     {
-        PillsSwallow,
+        Pills,
         Chewable,
         Sachet,
-        ReadyToDrink,
+        Drink,
         Ointment,
         Spray,
         Vial,
@@ -53,6 +55,7 @@ namespace MiryPharma
     }
     public enum QuantityUnitsEnum
     {
+        Pieces,
         Pack,
         HalfPack,
         QuarterPack,
@@ -61,8 +64,7 @@ namespace MiryPharma
         Blisterunder10,
         BlisterUnder20,
         BlisterUnder30,
-        Box,
-        Pieces
+        Box  
     }
 
     public enum SymptomsEnum 

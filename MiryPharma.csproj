@@ -120,5 +120,11 @@
   <ItemGroup>
     <None Include="Resources\Laughter.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green-Background-Phone-Wallpaper-16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green-wallpapers-14 %281%29.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

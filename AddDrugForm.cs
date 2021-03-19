@@ -25,10 +25,20 @@ namespace MiryPharma
         private void AddDrugForm_Load(object sender, EventArgs e)
         {
             QtyUnitsComboBox1.DataSource = Enum.GetValues(typeof(QuantityUnitsEnum));
-            QtyUnitsComboBox1.SelectedValue = QuantityUnitsEnum.Pieces;
-            ExpirationDateTimePicker1.Value = DateTime.Today.AddDays(31);
-            //checkedListBox2.DataSource = Enum.GetValues(typeof(SymptomsEnum));
-           // checkedListBox2.Items.AddRange(Enum.GetValues(typeof(SymptomsEnum));
+            ExpirationDateTimePicker1.Value = DateTime.Today.AddMonths(6);
+            SymptomsCheckedListBox.DataSource = Enum.GetValues(typeof(SymptomsEnum));
+            MedTypeComboBox1.DataSource = Enum.GetValues(typeof(DrugMedTypeEnum));
+            DrugScopeComboBox1.DataSource = Enum.GetValues(typeof(DrugScopeEnum));
+            DrugTakingComboBox1.DataSource = Enum.GetValues(typeof(DrugHowToTakeEnum));
+            DrugAgeComboBox1.DataSource = Enum.GetValues(typeof(DrugAgeCategoryEnum));
+            DrugFormatComboBox1.DataSource = Enum.GetValues(typeof(DrugFormatEnum));
+
         }
+
+        private void FirstTimeUseCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
