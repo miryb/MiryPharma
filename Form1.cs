@@ -12,7 +12,11 @@ namespace MiryPharma
 {
     public partial class HomePharmaForm : Form
     {
-        List<Image> BannerImages;
+        // Create a list for images
+        // List<Image> BannerImages;
+
+        // Create a queue for images
+        Queue<Image> BannerImages;
 
         Timer myTimer;
         public HomePharmaForm()
@@ -22,18 +26,26 @@ namespace MiryPharma
 
         private void HomePharmaForm_Load(object sender, EventArgs e)
         {
-            PopulateBannerImages();
-            SetTimer();
+
         }
 
         void PopulateBannerImages() 
         {
-            BannerImages = new List<Image>();
+            // Initialize the list
+            // BannerImages = new List<Image>();
+
+            // Initialize the queue
+            BannerImages = new Queue<Image>();
+
+            // Resources
             System.Resources.ResourceManager rm = global::MiryPharma.Properties.Resources.ResourceManager;
 
             for (int i = 1; i <= 5; i++) 
             {
-               BannerImages.Add((Image)rm.GetObject($"{i}"));
+                // Add to List
+                // BannerImages.Add((Image)rm.GetObject($"{i}"));
+
+                BannerImages.Enqueue((Image)rm.GetObject($"{i}"));
             }
         }
 
@@ -54,8 +66,12 @@ namespace MiryPharma
         {
             if (BannerImages.Count > 0)
             {
-                BannerPicturBox.BackgroundImage = BannerImages[0];
-                BannerImages.RemoveAt(0);
+                // Select first from List and remove
+                // BannerPicturBox.BackgroundImage = BannerImages[0];
+                // BannerImages.RemoveAt(0);
+
+                // assign and dequeue current
+                BannerPicturBox.BackgroundImage = BannerImages.Dequeue();
             }
             else 
             {
@@ -65,17 +81,27 @@ namespace MiryPharma
 
         private void AddDrugsButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Work in progress.");
+            // MessageBox.Show("Work in progress.");
+            AddDrugForm addDrug = new AddDrugForm();
+            addDrug.ShowDialog();
         }
 
         private void ViewDrugsButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("There is no medicine on stock.");
+            // MessageBox.Show("There is no medicine on stock.");
+            ViewDrugForm viewDrug = new ViewDrugForm();
+            viewDrug.ShowDialog();
         }
 
         private void BannerPicturBox_Click(object sender, EventArgs e)
         {
             StopTimer();
+        }
+
+        private void HomePharmaForm_Shown_1(object sender, EventArgs e)
+        {
+            PopulateBannerImages();
+            SetTimer();
         }
     }
 }

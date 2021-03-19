@@ -44,7 +44,7 @@ namespace MiryPharma
             this.AddDrugsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.AddDrugsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddDrugsButton.Font = new System.Drawing.Font("Garamond", 16.2F, System.Drawing.FontStyle.Bold);
-            this.AddDrugsButton.Location = new System.Drawing.Point(384, 462);
+            this.AddDrugsButton.Location = new System.Drawing.Point(584, 513);
             this.AddDrugsButton.Margin = new System.Windows.Forms.Padding(0);
             this.AddDrugsButton.Name = "AddDrugsButton";
             this.AddDrugsButton.Size = new System.Drawing.Size(192, 80);
@@ -68,7 +68,7 @@ namespace MiryPharma
             // 
             this.BannerPicturBox.BackgroundImage = global::MiryPharma.Properties.Resources.Laughter;
             this.BannerPicturBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BannerPicturBox.Location = new System.Drawing.Point(25, 61);
+            this.BannerPicturBox.Location = new System.Drawing.Point(138, 61);
             this.BannerPicturBox.Margin = new System.Windows.Forms.Padding(0);
             this.BannerPicturBox.Name = "BannerPicturBox";
             this.BannerPicturBox.Size = new System.Drawing.Size(733, 373);
@@ -86,7 +86,7 @@ namespace MiryPharma
             this.ViewDrugsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ViewDrugsButton.Font = new System.Drawing.Font("Garamond", 16.2F, System.Drawing.FontStyle.Bold);
             this.ViewDrugsButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ViewDrugsButton.Location = new System.Drawing.Point(174, 462);
+            this.ViewDrugsButton.Location = new System.Drawing.Point(374, 513);
             this.ViewDrugsButton.Margin = new System.Windows.Forms.Padding(0);
             this.ViewDrugsButton.Name = "ViewDrugsButton";
             this.ViewDrugsButton.Size = new System.Drawing.Size(198, 80);
@@ -100,7 +100,7 @@ namespace MiryPharma
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.ClientSize = new System.Drawing.Size(902, 769);
+            this.ClientSize = new System.Drawing.Size(1058, 769);
             this.Controls.Add(this.ViewDrugsButton);
             this.Controls.Add(this.BannerPicturBox);
             this.Controls.Add(this.WelcomeMsgLabel);
@@ -112,6 +112,7 @@ namespace MiryPharma
             this.Text = "MirY Pharma";
             this.TransparencyKey = System.Drawing.Color.Green;
             this.Load += new System.EventHandler(this.HomePharmaForm_Load);
+            this.Shown += new System.EventHandler(this.HomePharmaForm_Shown_1);
             ((System.ComponentModel.ISupportInitialize)(this.BannerPicturBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

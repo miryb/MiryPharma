@@ -48,6 +48,7 @@ namespace MiryPharma
         Spray,
         Vial,
         ShotVial,
+        Suppository,
         Other
     }
     public enum QuantityUnitsEnum
@@ -104,7 +105,6 @@ namespace MiryPharma
 
     class Drug
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public DateTime ExpiryDate { get; set; }
