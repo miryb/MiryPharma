@@ -12,9 +12,11 @@ namespace MiryPharma
 {
     public partial class ViewDrugForm : Form
     {
-        public ViewDrugForm()
+        private IEnumerable<Drug> drugs;
+        public ViewDrugForm(IEnumerable<Drug> drugs)
         {
             InitializeComponent();
+            this.drugs = drugs;
         }
     }
 }

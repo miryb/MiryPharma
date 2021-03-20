@@ -136,5 +136,11 @@
   <ItemGroup>
     <None Include="Resources\7d9e710c39ca635b1981cf88c8de7886.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outlook.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outlook_small.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

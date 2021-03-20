@@ -155,6 +155,7 @@ namespace MiryPharma
             this.DrugActiveIngredientTextBox1.Name = "DrugActiveIngredientTextBox1";
             this.DrugActiveIngredientTextBox1.Size = new System.Drawing.Size(423, 28);
             this.DrugActiveIngredientTextBox1.TabIndex = 12;
+            this.DrugActiveIngredientTextBox1.Text = "-";
             // 
             // SymptomsCheckedListBox
             // 

@@ -75,9 +75,9 @@ namespace MiryPharma
                 drug1.Allergic = this.DrugAllergicCheckBox2.Checked;
                 drug1.RequiresPrescription = this.DrugRequiresPrescriptionCheckBox3.Checked;
                 drug1.PrescriptionAvailable = this.DrugPrescriptionAvailableCheckBox4.Checked;
-                
-                List<string> selectedSymptoms = new List<string>();
-                foreach (string symptom in SymptomsCheckedListBox.CheckedItems) 
+
+                List<SymptomsEnum> selectedSymptoms = new List<SymptomsEnum>();
+                foreach (SymptomsEnum symptom in SymptomsCheckedListBox.CheckedItems)
                 {
                     selectedSymptoms.Add(symptom);
                 }

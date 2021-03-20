@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MiryPharma
 {
@@ -116,11 +118,17 @@ namespace MiryPharma
         public bool FirstTimeUse { get; set; }
         public bool Antibiotic { get; set; }
         public string ActiveIngredient { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public QuantityUnitsEnum QuantityUnits { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public DrugFormatEnum DrugFormat  { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public DrugAgeCategoryEnum DrugAgeCategory { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public DrugHowToTakeEnum DrugHowToTake { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public DrugMedTypeEnum DrugMedType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public DrugScopeEnum DrugScope { get; set; }
         public SymptomsEnum Symptoms { get; set; }
         public string symptomsStr { get; set; }

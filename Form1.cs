@@ -15,17 +15,18 @@ namespace MiryPharma
     public partial class HomePharmaForm : Form
     {
         Queue<Image> BannerImages;
-        private List <Drug> drugs = new List<Drug>();
+        private List<Drug> drugs = new List<Drug>();
 
         Timer myTimer;
         public HomePharmaForm()
         {
             InitializeComponent();
+            ReadFromJson();
         }
 
         private void HomePharmaForm_Load(object sender, EventArgs e)
         {
-
+       
         }
 
         void PopulateBannerImages() 
@@ -77,7 +78,7 @@ namespace MiryPharma
         private void ViewDrugsButton_Click(object sender, EventArgs e)
         {
             // MessageBox.Show("There is no medicine on stock.");
-            ViewDrugForm viewDrug = new ViewDrugForm();
+            ViewDrugForm viewDrug = new ViewDrugForm(drugs);
             viewDrug.ShowDialog();
         }
 
@@ -94,25 +95,88 @@ namespace MiryPharma
 
 
 
-        private void ReadJson()
+        private void ReadFromJson()
         {
             try
             {
-                //// deserialize JSON directly from a file (path of the file in project?)
-                //using (StreamReader file = new StreamReader(@"c:\Drugs.json"))
-                //{
-                //    JsonSerializer serializer = new JsonSerializer();
-                //    List<Drug> drugs = (List<Drug>)serializer.Deserialize(file, typeof(List<Drug>));
-                //}
-
-                // read file into a string and deserialize JSON to a type
-                List<Drug> drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json"));
+                // Deserialization = making a string into an object   
+                // Read file into a string and deserialize JSON to a type
+                // ReadAllText closes the file automatically
+                drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json"));
+                MessageBox.Show($"{drugs.Count}");
             }
 
             catch (Exception ex)
             {
                 // expected to fail if there is no file but no point in doing smth
+                MessageBox.Show($"{ex.Message} \r\n {ex.StackTrace}");
             }
+        }
+
+        private void WriteToJson()
+        {
+            try
+            {
+                // Serialization = writing an object to a string 
+                // serialize JSON to a string and then write string to a file
+                File.WriteAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json", JsonConvert.SerializeObject(drugs));
+
+                // serialize JSON directly to a file
+                using (StreamWriter file = File.CreateText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs-copy.json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(file, drugs);
+                }
+
+                // this calls Dispose() on the sw and it is closing the file
+            }
+
+            catch (Exception ex)
+            {
+                // System.Diagnostics.Trace 
+                // a way to log all these exceptions in a file
+            }
+        }
+
+        private void HomePharmaForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WriteToJson();
+        }
+
+        private void MailLinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MailMe();
+        }
+
+        private void MailMe() 
+        {
+            if (drugs.Count >0)
+            {
+                StringBuilder builder = new StringBuilder();
+                builder.AppendLine($"===================================\r\n");
+
+                foreach (Drug d in this.drugs)
+                {
+                    builder.AppendLine
+                        (
+                        $" PRODUCT: {d.Name} |" +
+                        $"{d.Quantity} { d.QuantityUnits} |" +
+                        $"Expires: {d.ExpiryDate.ToShortDateString()} ");
+                    builder.AppendLine("\r\n===================================");
+                }
+                string emailAddress = "miry@contoso.com";
+                string subject = $"My home pharmacy has {drugs.Count} medicines on stock.";
+                string body = builder.ToString();
+
+                System.Diagnostics.Process.Start($"mailto:{emailAddress}?subject={subject}&body={body}");
+            }
+
+            else 
+            {
+                MessageBox.Show($"You don't have any medicine on stock!");
+            }
+
+
         }
     }
 }

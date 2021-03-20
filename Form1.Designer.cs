@@ -32,8 +32,9 @@ namespace MiryPharma
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePharmaForm));
             this.AddDrugsButton = new System.Windows.Forms.Button();
             this.WelcomeMsgLabel = new System.Windows.Forms.Label();
-            this.BannerPicturBox = new System.Windows.Forms.PictureBox();
             this.ViewDrugsButton = new System.Windows.Forms.Button();
+            this.MailLinkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.BannerPicturBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.BannerPicturBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,10 +45,10 @@ namespace MiryPharma
             this.AddDrugsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.AddDrugsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddDrugsButton.Font = new System.Drawing.Font("Garamond", 16.2F, System.Drawing.FontStyle.Bold);
-            this.AddDrugsButton.Location = new System.Drawing.Point(584, 513);
+            this.AddDrugsButton.Location = new System.Drawing.Point(506, 499);
             this.AddDrugsButton.Margin = new System.Windows.Forms.Padding(0);
             this.AddDrugsButton.Name = "AddDrugsButton";
-            this.AddDrugsButton.Size = new System.Drawing.Size(192, 80);
+            this.AddDrugsButton.Size = new System.Drawing.Size(364, 80);
             this.AddDrugsButton.TabIndex = 26;
             this.AddDrugsButton.Text = "Add";
             this.AddDrugsButton.UseVisualStyleBackColor = false;
@@ -64,6 +65,39 @@ namespace MiryPharma
             this.WelcomeMsgLabel.TabIndex = 1;
             this.WelcomeMsgLabel.Text = "This is an app for managing my medicine at home";
             // 
+            // ViewDrugsButton
+            // 
+            this.ViewDrugsButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ViewDrugsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ViewDrugsButton.FlatAppearance.BorderSize = 0;
+            this.ViewDrugsButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HotTrack;
+            this.ViewDrugsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewDrugsButton.Font = new System.Drawing.Font("Garamond", 16.2F, System.Drawing.FontStyle.Bold);
+            this.ViewDrugsButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ViewDrugsButton.Location = new System.Drawing.Point(138, 499);
+            this.ViewDrugsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ViewDrugsButton.Name = "ViewDrugsButton";
+            this.ViewDrugsButton.Size = new System.Drawing.Size(368, 80);
+            this.ViewDrugsButton.TabIndex = 28;
+            this.ViewDrugsButton.Text = "View";
+            this.ViewDrugsButton.UseVisualStyleBackColor = false;
+            this.ViewDrugsButton.Click += new System.EventHandler(this.ViewDrugsButton_Click);
+            // 
+            // MailLinkLabel1
+            // 
+            this.MailLinkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F);
+            this.MailLinkLabel1.Image = global::MiryPharma.Properties.Resources.outlook_small;
+            this.MailLinkLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MailLinkLabel1.LinkColor = System.Drawing.SystemColors.HotTrack;
+            this.MailLinkLabel1.Location = new System.Drawing.Point(457, 593);
+            this.MailLinkLabel1.Name = "MailLinkLabel1";
+            this.MailLinkLabel1.Size = new System.Drawing.Size(129, 167);
+            this.MailLinkLabel1.TabIndex = 29;
+            this.MailLinkLabel1.TabStop = true;
+            this.MailLinkLabel1.Text = "Mail Me!";
+            this.MailLinkLabel1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.MailLinkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MailLinkLabel1_LinkClicked);
+            // 
             // BannerPicturBox
             // 
             this.BannerPicturBox.BackgroundImage = global::MiryPharma.Properties.Resources.Laughter;
@@ -77,30 +111,13 @@ namespace MiryPharma
             this.BannerPicturBox.TabStop = false;
             this.BannerPicturBox.Click += new System.EventHandler(this.BannerPicturBox_Click);
             // 
-            // ViewDrugsButton
-            // 
-            this.ViewDrugsButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ViewDrugsButton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ViewDrugsButton.FlatAppearance.BorderSize = 0;
-            this.ViewDrugsButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HotTrack;
-            this.ViewDrugsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ViewDrugsButton.Font = new System.Drawing.Font("Garamond", 16.2F, System.Drawing.FontStyle.Bold);
-            this.ViewDrugsButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ViewDrugsButton.Location = new System.Drawing.Point(374, 513);
-            this.ViewDrugsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ViewDrugsButton.Name = "ViewDrugsButton";
-            this.ViewDrugsButton.Size = new System.Drawing.Size(198, 80);
-            this.ViewDrugsButton.TabIndex = 28;
-            this.ViewDrugsButton.Text = "View";
-            this.ViewDrugsButton.UseVisualStyleBackColor = false;
-            this.ViewDrugsButton.Click += new System.EventHandler(this.ViewDrugsButton_Click);
-            // 
             // HomePharmaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(1058, 769);
+            this.Controls.Add(this.MailLinkLabel1);
             this.Controls.Add(this.ViewDrugsButton);
             this.Controls.Add(this.BannerPicturBox);
             this.Controls.Add(this.WelcomeMsgLabel);
@@ -111,6 +128,7 @@ namespace MiryPharma
             this.Name = "HomePharmaForm";
             this.Text = "MirY Pharma";
             this.TransparencyKey = System.Drawing.Color.Green;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomePharmaForm_FormClosed);
             this.Load += new System.EventHandler(this.HomePharmaForm_Load);
             this.Shown += new System.EventHandler(this.HomePharmaForm_Shown_1);
             ((System.ComponentModel.ISupportInitialize)(this.BannerPicturBox)).EndInit();
@@ -125,6 +143,7 @@ namespace MiryPharma
         private System.Windows.Forms.Label WelcomeMsgLabel;
         private System.Windows.Forms.PictureBox BannerPicturBox;
         private System.Windows.Forms.Button ViewDrugsButton;
+        private System.Windows.Forms.LinkLabel MailLinkLabel1;
     }
 }
 
