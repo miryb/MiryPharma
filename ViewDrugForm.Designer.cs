@@ -43,6 +43,7 @@ namespace MiryPharma
             this.DrugViewDataGridView1.RowTemplate.Height = 24;
             this.DrugViewDataGridView1.Size = new System.Drawing.Size(1062, 618);
             this.DrugViewDataGridView1.TabIndex = 0;
+            this.DrugViewDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DrugViewDataGridView1_CellContentClick);
             // 
             // ViewDrugForm
             // 
@@ -54,6 +55,7 @@ namespace MiryPharma
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewDrugForm";
             this.Text = "View your medicine";
+            this.Load += new System.EventHandler(this.ViewDrugForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DrugViewDataGridView1)).EndInit();
             this.ResumeLayout(false);
 

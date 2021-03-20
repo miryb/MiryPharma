@@ -77,9 +77,17 @@ namespace MiryPharma
 
         private void ViewDrugsButton_Click(object sender, EventArgs e)
         {
-            // MessageBox.Show("There is no medicine on stock.");
-            ViewDrugForm viewDrug = new ViewDrugForm(drugs);
-            viewDrug.ShowDialog();
+
+            if (drugs.Count > 0)
+            {
+                ViewDrugForm viewDrug = new ViewDrugForm(drugs);
+                viewDrug.ShowDialog();
+            }
+            else 
+            {
+                MessageBox.Show("There is no medicine on stock.");
+            }
+
         }
 
         private void BannerPicturBox_Click(object sender, EventArgs e)
@@ -103,13 +111,14 @@ namespace MiryPharma
                 // Read file into a string and deserialize JSON to a type
                 // ReadAllText closes the file automatically
                 drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json"));
+                
                 MessageBox.Show($"{drugs.Count}");
             }
 
             catch (Exception ex)
             {
                 // expected to fail if there is no file but no point in doing smth
-                MessageBox.Show($"{ex.Message} \r\n {ex.StackTrace}");
+                // MessageBox.Show($"{ex.Message} \r\n {ex.StackTrace}");
             }
         }
 
