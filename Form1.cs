@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace MiryPharma
 {
     public partial class HomePharmaForm : Form
     {
         Queue<Image> BannerImages;
+        private List <Drug> drugs = new List<Drug>();
 
         Timer myTimer;
         public HomePharmaForm()
@@ -55,10 +58,6 @@ namespace MiryPharma
         {
             if (BannerImages.Count > 0)
             {
-                // Select first from List and remove
-                // BannerPicturBox.BackgroundImage = BannerImages[0];
-                // BannerImages.RemoveAt(0);
-
                 // assign and dequeue current
                 BannerPicturBox.BackgroundImage = BannerImages.Dequeue();
             }
@@ -71,7 +70,7 @@ namespace MiryPharma
         private void AddDrugsButton_Click(object sender, EventArgs e)
         {
             // MessageBox.Show("Work in progress.");
-            AddDrugForm addDrug = new AddDrugForm();
+            AddDrugForm addDrug = new AddDrugForm(drugs);
             addDrug.ShowDialog();
         }
 
@@ -91,6 +90,29 @@ namespace MiryPharma
         {
             PopulateBannerImages();
             SetTimer();
+        }
+
+
+
+        private void ReadJson()
+        {
+            try
+            {
+                //// deserialize JSON directly from a file (path of the file in project?)
+                //using (StreamReader file = new StreamReader(@"c:\Drugs.json"))
+                //{
+                //    JsonSerializer serializer = new JsonSerializer();
+                //    List<Drug> drugs = (List<Drug>)serializer.Deserialize(file, typeof(List<Drug>));
+                //}
+
+                // read file into a string and deserialize JSON to a type
+                List<Drug> drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json"));
+            }
+
+            catch (Exception ex)
+            {
+                // expected to fail if there is no file but no point in doing smth
+            }
         }
     }
 }

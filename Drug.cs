@@ -105,7 +105,7 @@ namespace MiryPharma
         Other
     }
 
-    class Drug
+    public class Drug
     {
         public string Name { get; set; }
         public int Quantity { get; set; }
@@ -123,7 +123,8 @@ namespace MiryPharma
         public DrugMedTypeEnum DrugMedType { get; set; }
         public DrugScopeEnum DrugScope { get; set; }
         public SymptomsEnum Symptoms { get; set; }
-        public string AdditionalComments { get; set; }
+        public string symptomsStr { get; set; }
+        // public string AdditionalComments { get; set; }
 
         public Drug(string name, int qty, QuantityUnitsEnum qtyUnits, DateTime expiration) 
         {
