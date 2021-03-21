@@ -52,6 +52,7 @@ namespace MiryPharma
             this.DrugViewDataGridView1.EnableHeadersVisualStyles = false;
             this.DrugViewDataGridView1.Location = new System.Drawing.Point(50, 33);
             this.DrugViewDataGridView1.Name = "DrugViewDataGridView1";
+            this.DrugViewDataGridView1.ReadOnly = true;
             this.DrugViewDataGridView1.RowHeadersWidth = 51;
             this.DrugViewDataGridView1.RowTemplate.Height = 24;
             this.DrugViewDataGridView1.Size = new System.Drawing.Size(1022, 611);

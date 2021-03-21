@@ -55,9 +55,11 @@ namespace MiryPharma
         {
             DrugViewDataGridView1.AutoGenerateColumns = false;
             DrugViewDataGridView1.DataSource = drugs;
+            
 
             // Style for Column Headers
             DrugViewDataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+
             //FromArgb(112, 173, 71);
             DrugViewDataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             DrugViewDataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Lucida sans", 9.7F, FontStyle.Bold);
@@ -70,49 +72,37 @@ namespace MiryPharma
             column1.Name = "DrugName";
             column1.HeaderText = "Name";
             column1.DataPropertyName = "Name";
+            column1.ReadOnly = true;
             DrugViewDataGridView1.Columns.Add(column1);
 
             DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
-            column2.Name = "ActiveIngredient";
-            column2.HeaderText = "Ingredient";
-            column2.DataPropertyName = "ActiveIngredient";
+            column2.Name = "DrugQuantity";
+            column2.HeaderText = "Qty";
+            column2.DataPropertyName = "Quantity";
             DrugViewDataGridView1.Columns.Add(column2);
 
             DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
-            column3.Name = "DrugQuantity";
-            column3.HeaderText = "Qty";
-            column3.DataPropertyName = "Quantity";
+            column3.Name = "QuantityUnits";
+            column3.HeaderText = "Units";
+            column3.DataPropertyName = "QuantityUnits";
             DrugViewDataGridView1.Columns.Add(column3);
 
             DataGridViewTextBoxColumn column4 = new DataGridViewTextBoxColumn();
-            column4.Name = "QuantityUnits";
-            column4.HeaderText = "Units";
-            column4.DataPropertyName = "QuantityUnits";
+            column4.Name = "DrugExpiryDate";
+            column4.HeaderText = "Expiry Date";
+            column4.DataPropertyName = "ExpiryDate";
             DrugViewDataGridView1.Columns.Add(column4);
 
-            DataGridViewTextBoxColumn column5 = new DataGridViewTextBoxColumn();
-            column5.Name = "DrugExpiryDate";
-            column5.HeaderText = "Expiry Date";
-            column5.DataPropertyName = "ExpiryDate";
-            DrugViewDataGridView1.Columns.Add(column5);
-
-            DataGridViewTextBoxColumn column6 = new DataGridViewTextBoxColumn();
-            column6.Name = "Antibiotic";
-            column6.HeaderText = "Antibiotic";
-            column6.DataPropertyName = "Antibiotic";
-            DrugViewDataGridView1.Columns.Add(column6);
-
-            DataGridViewButtonColumn column7 = new DataGridViewButtonColumn();
-            column7.Name = "DrugDelete";
-            column7.HeaderText = "Delete";
-            column7.UseColumnTextForButtonValue = true;
-            column7.Text = "Delete";
+            DataGridViewButtonColumn column5 = new DataGridViewButtonColumn();
+            column5.Name = "DrugDelete";
+            column5.HeaderText = "Delete";
+            column5.UseColumnTextForButtonValue = true;
+            column5.Text = "Delete";
             //column7.FlatStyle = FlatStyle.Standard;
             //column7.CellTemplate.Style.BackColor = Color.LightCoral;
             //column7.CellTemplate.Style.ForeColor = Color.White;
-            DrugViewDataGridView1.Columns.Add(column7);
+            DrugViewDataGridView1.Columns.Add(column5);
 
-            
             
         }
 
