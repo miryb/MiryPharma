@@ -109,6 +109,7 @@ namespace MiryPharma
             // 
             // DrugQtyUnitsComboBox1
             // 
+            this.DrugQtyUnitsComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DrugQtyUnitsComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.DrugQtyUnitsComboBox1.FormattingEnabled = true;
             this.DrugQtyUnitsComboBox1.Location = new System.Drawing.Point(345, 192);
@@ -196,6 +197,7 @@ namespace MiryPharma
             // 
             // DrugMedTypeComboBox1
             // 
+            this.DrugMedTypeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DrugMedTypeComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DrugMedTypeComboBox1.FormattingEnabled = true;
             this.DrugMedTypeComboBox1.Location = new System.Drawing.Point(181, 261);
@@ -206,6 +208,7 @@ namespace MiryPharma
             // 
             // DrugAgeComboBox1
             // 
+            this.DrugAgeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DrugAgeComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DrugAgeComboBox1.FormattingEnabled = true;
             this.DrugAgeComboBox1.Location = new System.Drawing.Point(181, 296);
@@ -227,6 +230,7 @@ namespace MiryPharma
             // 
             // DrugScopeComboBox1
             // 
+            this.DrugScopeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DrugScopeComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DrugScopeComboBox1.FormattingEnabled = true;
             this.DrugScopeComboBox1.Location = new System.Drawing.Point(181, 334);
@@ -248,6 +252,7 @@ namespace MiryPharma
             // 
             // DrugTakingComboBox1
             // 
+            this.DrugTakingComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DrugTakingComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DrugTakingComboBox1.FormattingEnabled = true;
             this.DrugTakingComboBox1.Location = new System.Drawing.Point(181, 377);
@@ -269,6 +274,7 @@ namespace MiryPharma
             // 
             // DrugFormatComboBox1
             // 
+            this.DrugFormatComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DrugFormatComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DrugFormatComboBox1.FormattingEnabled = true;
             this.DrugFormatComboBox1.Location = new System.Drawing.Point(181, 421);

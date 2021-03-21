@@ -49,6 +49,7 @@ namespace MiryPharma
         Sachet,
         Drink,
         Ointment,
+        Drops,
         Spray,
         Vial,
         ShotVial,
