@@ -159,25 +159,28 @@ namespace MiryPharma
 
         private void MailMe() 
         {
-            if (drugs.Count >0)
+            if (drugs.Count > 0)
             {
-                StringBuilder builder = new StringBuilder();
-                builder.AppendLine($"===================================\r\n");
-
+                StringBuilder stringBuilder = new StringBuilder();
+                 
                 foreach (Drug d in this.drugs)
                 {
-                    builder.AppendLine
+                   stringBuilder.AppendLine
                         (
-                        $" PRODUCT: {d.Name} |" +
-                        $"{d.Quantity} { d.QuantityUnits} |" +
-                        $"Expires: {d.ExpiryDate.ToShortDateString()} ");
-                    builder.AppendLine("\r\n===================================");
+                        $"- Medicine: {d.Name}, " +
+                        $"Quantity: {d.Quantity} { d.QuantityUnits}, " +
+                        $"Expires: {d.ExpiryDate.ToShortDateString()} ;" +
+                        $"\n"
+                        );
                 }
                 string emailAddress = "miry@contoso.com";
                 string subject = $"My home pharmacy has {drugs.Count} medicines on stock.";
-                string body = builder.ToString();
+                string body = stringBuilder.ToString();
+                string mailto = string.Format($"mailto:{emailAddress}?subject={subject}&body={body}");
+                mailto = Uri.EscapeUriString(mailto);
 
-                System.Diagnostics.Process.Start($"mailto:{emailAddress}?subject={subject}&body={body}");
+
+                System.Diagnostics.Process.Start(mailto);
             }
 
             else 

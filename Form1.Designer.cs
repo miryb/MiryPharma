@@ -45,7 +45,7 @@ namespace MiryPharma
             this.AddDrugsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
             this.AddDrugsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddDrugsButton.Font = new System.Drawing.Font("Garamond", 16.2F, System.Drawing.FontStyle.Bold);
-            this.AddDrugsButton.Location = new System.Drawing.Point(506, 499);
+            this.AddDrugsButton.Location = new System.Drawing.Point(507, 464);
             this.AddDrugsButton.Margin = new System.Windows.Forms.Padding(0);
             this.AddDrugsButton.Name = "AddDrugsButton";
             this.AddDrugsButton.Size = new System.Drawing.Size(364, 80);
@@ -59,7 +59,7 @@ namespace MiryPharma
             this.WelcomeMsgLabel.AutoSize = true;
             this.WelcomeMsgLabel.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WelcomeMsgLabel.ForeColor = System.Drawing.Color.Black;
-            this.WelcomeMsgLabel.Location = new System.Drawing.Point(21, 9);
+            this.WelcomeMsgLabel.Location = new System.Drawing.Point(135, 9);
             this.WelcomeMsgLabel.Name = "WelcomeMsgLabel";
             this.WelcomeMsgLabel.Size = new System.Drawing.Size(329, 22);
             this.WelcomeMsgLabel.TabIndex = 1;
@@ -74,7 +74,7 @@ namespace MiryPharma
             this.ViewDrugsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ViewDrugsButton.Font = new System.Drawing.Font("Garamond", 16.2F, System.Drawing.FontStyle.Bold);
             this.ViewDrugsButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ViewDrugsButton.Location = new System.Drawing.Point(138, 499);
+            this.ViewDrugsButton.Location = new System.Drawing.Point(139, 464);
             this.ViewDrugsButton.Margin = new System.Windows.Forms.Padding(0);
             this.ViewDrugsButton.Name = "ViewDrugsButton";
             this.ViewDrugsButton.Size = new System.Drawing.Size(368, 80);
@@ -89,7 +89,7 @@ namespace MiryPharma
             this.MailLinkLabel1.Image = global::MiryPharma.Properties.Resources.outlook_small;
             this.MailLinkLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MailLinkLabel1.LinkColor = System.Drawing.SystemColors.HotTrack;
-            this.MailLinkLabel1.Location = new System.Drawing.Point(457, 593);
+            this.MailLinkLabel1.Location = new System.Drawing.Point(442, 544);
             this.MailLinkLabel1.Name = "MailLinkLabel1";
             this.MailLinkLabel1.Size = new System.Drawing.Size(129, 167);
             this.MailLinkLabel1.TabIndex = 29;
@@ -116,7 +116,7 @@ namespace MiryPharma
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.ClientSize = new System.Drawing.Size(1058, 769);
+            this.ClientSize = new System.Drawing.Size(1035, 769);
             this.Controls.Add(this.MailLinkLabel1);
             this.Controls.Add(this.ViewDrugsButton);
             this.Controls.Add(this.BannerPicturBox);
@@ -126,6 +126,7 @@ namespace MiryPharma
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HomePharmaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MirY Pharma";
             this.TransparencyKey = System.Drawing.Color.Green;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomePharmaForm_FormClosed);
