@@ -56,7 +56,17 @@ namespace MiryPharma
             DrugViewDataGridView1.AutoGenerateColumns = false;
             DrugViewDataGridView1.DataSource = drugs;
 
-            DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
+            // Style for Column Headers
+            DrugViewDataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            //FromArgb(112, 173, 71);
+            DrugViewDataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            DrugViewDataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Lucida sans", 9.7F, FontStyle.Bold);
+
+            // Style for Selected Row
+            DrugViewDataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(112, 173, 71);
+            DrugViewDataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+
+           DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "DrugName";
             column1.HeaderText = "Name";
             column1.DataPropertyName = "Name";
@@ -97,8 +107,13 @@ namespace MiryPharma
             column7.HeaderText = "Delete";
             column7.UseColumnTextForButtonValue = true;
             column7.Text = "Delete";
+            //column7.FlatStyle = FlatStyle.Standard;
+            //column7.CellTemplate.Style.BackColor = Color.LightCoral;
+            //column7.CellTemplate.Style.ForeColor = Color.White;
             DrugViewDataGridView1.Columns.Add(column7);
 
+            
+            
         }
 
 
