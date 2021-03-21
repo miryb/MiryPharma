@@ -112,7 +112,7 @@ namespace MiryPharma
                 // ReadAllText closes the file automatically
                 drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json"));
                 
-                MessageBox.Show($"{drugs.Count}");
+                MessageBox.Show($"{drugs.Count} meds loaded");
             }
 
             catch (Exception ex)

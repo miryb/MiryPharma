@@ -142,5 +142,8 @@
   <ItemGroup>
     <None Include="Resources\outlook_small.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red_pill.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

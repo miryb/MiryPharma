@@ -51,6 +51,8 @@ namespace MiryPharma
             this.DrugTakingLabel = new System.Windows.Forms.Label();
             this.DrugFormatComboBox1 = new System.Windows.Forms.ComboBox();
             this.DrugFormatLabel = new System.Windows.Forms.Label();
+            this.ErrorValidateLabel = new System.Windows.Forms.Label();
+            this.ResetButton1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AddDrugButton = new System.Windows.Forms.Button();
             this.MiscellanousGroupBox1 = new System.Windows.Forms.GroupBox();
@@ -59,7 +61,6 @@ namespace MiryPharma
             this.DrugAllergicCheckBox2 = new System.Windows.Forms.CheckBox();
             this.DrugAntibioticCheckBox1 = new System.Windows.Forms.CheckBox();
             this.DrugFirstTimeUseCheckBox1 = new System.Windows.Forms.CheckBox();
-            this.ErrorValidateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MiscellanousGroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -173,7 +174,7 @@ namespace MiryPharma
             // 
             this.SymptomsLabel.AutoSize = true;
             this.SymptomsLabel.Font = new System.Drawing.Font("Lucida Handwriting", 12.2F);
-            this.SymptomsLabel.Location = new System.Drawing.Point(709, 109);
+            this.SymptomsLabel.Location = new System.Drawing.Point(728, 113);
             this.SymptomsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SymptomsLabel.Name = "SymptomsLabel";
             this.SymptomsLabel.Size = new System.Drawing.Size(134, 27);
@@ -285,6 +286,36 @@ namespace MiryPharma
             this.DrugFormatLabel.TabIndex = 25;
             this.DrugFormatLabel.Text = "Presentation Form";
             // 
+            // ErrorValidateLabel
+            // 
+            this.ErrorValidateLabel.AutoSize = true;
+            this.ErrorValidateLabel.ForeColor = System.Drawing.Color.OrangeRed;
+            this.ErrorValidateLabel.Location = new System.Drawing.Point(17, 26);
+            this.ErrorValidateLabel.Name = "ErrorValidateLabel";
+            this.ErrorValidateLabel.Size = new System.Drawing.Size(139, 19);
+            this.ErrorValidateLabel.TabIndex = 30;
+            this.ErrorValidateLabel.Text = "Error Message: ";
+            this.ErrorValidateLabel.Visible = false;
+            // 
+            // ResetButton1
+            // 
+            this.ResetButton1.BackColor = System.Drawing.Color.Transparent;
+            this.ResetButton1.BackgroundImage = global::MiryPharma.Properties.Resources.red_pill;
+            this.ResetButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ResetButton1.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.ResetButton1.FlatAppearance.BorderSize = 2;
+            this.ResetButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ResetButton1.Font = new System.Drawing.Font("Lucida Handwriting", 11.9F, System.Drawing.FontStyle.Bold);
+            this.ResetButton1.ForeColor = System.Drawing.Color.Snow;
+            this.ResetButton1.Location = new System.Drawing.Point(9, 612);
+            this.ResetButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.ResetButton1.Name = "ResetButton1";
+            this.ResetButton1.Size = new System.Drawing.Size(160, 105);
+            this.ResetButton1.TabIndex = 31;
+            this.ResetButton1.Text = "RESET";
+            this.ResetButton1.UseVisualStyleBackColor = false;
+            this.ResetButton1.Click += new System.EventHandler(this.ResetButton1_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::MiryPharma.Properties.Resources._7d9e710c39ca635b1981cf88c8de7886;
@@ -305,10 +336,10 @@ namespace MiryPharma
             this.AddDrugButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddDrugButton.Font = new System.Drawing.Font("Lucida Handwriting", 11.9F, System.Drawing.FontStyle.Bold);
             this.AddDrugButton.ForeColor = System.Drawing.Color.Green;
-            this.AddDrugButton.Location = new System.Drawing.Point(814, 625);
+            this.AddDrugButton.Location = new System.Drawing.Point(9, 467);
             this.AddDrugButton.Margin = new System.Windows.Forms.Padding(0);
             this.AddDrugButton.Name = "AddDrugButton";
-            this.AddDrugButton.Size = new System.Drawing.Size(132, 92);
+            this.AddDrugButton.Size = new System.Drawing.Size(160, 105);
             this.AddDrugButton.TabIndex = 28;
             this.AddDrugButton.Text = " ADD";
             this.AddDrugButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -392,23 +423,13 @@ namespace MiryPharma
             this.DrugFirstTimeUseCheckBox1.Text = "First time using it";
             this.DrugFirstTimeUseCheckBox1.UseVisualStyleBackColor = true;
             // 
-            // ErrorValidateLabel
-            // 
-            this.ErrorValidateLabel.AutoSize = true;
-            this.ErrorValidateLabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.ErrorValidateLabel.Location = new System.Drawing.Point(17, 26);
-            this.ErrorValidateLabel.Name = "ErrorValidateLabel";
-            this.ErrorValidateLabel.Size = new System.Drawing.Size(139, 19);
-            this.ErrorValidateLabel.TabIndex = 30;
-            this.ErrorValidateLabel.Text = "Error Message: ";
-            this.ErrorValidateLabel.Visible = false;
-            // 
             // AddDrugForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(966, 759);
+            this.Controls.Add(this.ResetButton1);
             this.Controls.Add(this.ErrorValidateLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AddDrugButton);
@@ -482,5 +503,6 @@ namespace MiryPharma
         private System.Windows.Forms.Button AddDrugButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label ErrorValidateLabel;
+        private System.Windows.Forms.Button ResetButton1;
     }
 }
