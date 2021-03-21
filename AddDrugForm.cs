@@ -21,6 +21,7 @@ namespace MiryPharma
 
         private void AddDrugForm_Load(object sender, EventArgs e)
         {
+            // Binding components or setting defaults 
             DrugQtyUnitsComboBox1.DataSource = Enum.GetValues(typeof(QuantityUnitsEnum));
             ExpirationDateTimePicker1.Value = DateTime.Today.AddMonths(6);
             SymptomsCheckedListBox.DataSource = Enum.GetValues(typeof(SymptomsEnum));
@@ -30,7 +31,6 @@ namespace MiryPharma
             DrugTakingComboBox1.DataSource = Enum.GetValues(typeof(DrugHowToTakeEnum));
             DrugAgeComboBox1.DataSource = Enum.GetValues(typeof(DrugAgeCategoryEnum));
             DrugFormatComboBox1.DataSource = Enum.GetValues(typeof(DrugFormatEnum));
-
         }
 
         private bool ValidateForm()
@@ -85,11 +85,9 @@ namespace MiryPharma
 
                 this.drugs.Add(drug1);
 
-                //message box with product added successfully
-
+                // Message box with product added successfully
                 MessageBox.Show($"Medicine \"{drug1.Name}\" added successfully");
             }
-
         }
 
         private void AddDrugButton_Click(object sender, EventArgs e)
@@ -107,21 +105,32 @@ namespace MiryPharma
 
         private void ResetForm()
         {
+            // Reset Text Boxes
             this.DrugNameTextBox.Text = "";
             this.DrugQuantityTextBox.Text = "1";
             this.DrugActiveIngredientTextBox1.Text = "-";
+
+            // Reset Calendar's expiry date to 6M
             this.ExpirationDateTimePicker1.Value = DateTime.Today.AddMonths(6);
+            
+            // Reset selected option in dropdown lists
             this.DrugQtyUnitsComboBox1.SelectedIndex = (int)QuantityUnitsEnum.Pieces;
-            this.SymptomsCheckedListBox.SelectedIndex = (int)SymptomsEnum.Other;
             this.DrugMedTypeComboBox1.SelectedIndex= (int)DrugMedTypeEnum.Allopathic;
             this.DrugAgeComboBox1.SelectedIndex = (int)DrugAgeCategoryEnum.Adults;
             this.DrugScopeComboBox1.SelectedIndex = (int)DrugScopeEnum.Treatment;
             this.DrugTakingComboBox1.SelectedIndex = (int)DrugHowToTakeEnum.Oral;
             this.DrugFormatComboBox1.SelectedIndex = (int)DrugFormatEnum.Pills;
+
+            // Reset Checkboxes 
             this.DrugFirstTimeUseCheckBox1.Checked = false;
             this.DrugPrescriptionAvailableCheckBox4.Checked = false;
             this.DrugAllergicCheckBox2.Checked = false;
             this.DrugAntibioticCheckBox1.Checked = false;
+
+            // Reset CheckedItems in CheckedListBox
+            this.SymptomsCheckedListBox.DataSource = null;
+            this.SymptomsCheckedListBox.DataSource = Enum.GetValues(typeof(SymptomsEnum));
+            this.SymptomsCheckedListBox.SelectedIndex = (int)SymptomsEnum.Other;
         }
 
         private void ResetButton1_Click(object sender, EventArgs e)

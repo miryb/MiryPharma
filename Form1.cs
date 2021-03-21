@@ -14,10 +14,19 @@ namespace MiryPharma
 {
     public partial class HomePharmaForm : Form
     {
+        // Banner image gallery
         Queue<Image> BannerImages;
+        Timer myTimer;
+
+        // List containing the meds
         private List<Drug> drugs = new List<Drug>();
 
-        Timer myTimer;
+        // JSON Files Paths
+        private string jsonFilePath = @"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json";
+        private string jsonFileCopyPath = @"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs-copy.json";
+        private string jsonFileExpiredMed = @"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs-expired.json";
+
+
         public HomePharmaForm()
         {
             InitializeComponent();
@@ -101,16 +110,15 @@ namespace MiryPharma
             SetTimer();
         }
 
-
-
         private void ReadFromJson()
         {
             try
             {
                 // Deserialization = making a string into an object   
+
                 // Read file into a string and deserialize JSON to a type
                 // ReadAllText closes the file automatically
-                drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json"));
+                drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(jsonFilePath));
                 
                 MessageBox.Show($"{drugs.Count} meds loaded");
             }
@@ -126,18 +134,19 @@ namespace MiryPharma
         {
             try
             {
-                // Serialization = writing an object to a string 
-                // serialize JSON to a string and then write string to a file
-                File.WriteAllText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json", JsonConvert.SerializeObject(drugs));
-
-                // serialize JSON directly to a file
-                using (StreamWriter file = File.CreateText(@"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs-copy.json"))
+                if (drugs.Count > 0)
                 {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, drugs);
-                }
+                    // Serialization = writing an object to a string 
 
-                // this calls Dispose() on the sw and it is closing the file
+                    // Serialize JSON to a string and then write string to a file
+                    File.WriteAllText(jsonFilePath, JsonConvert.SerializeObject(drugs));
+
+                    // Make a copy
+                    File.Copy(jsonFilePath, jsonFileCopyPath, true);
+
+                    // Get expired meds and write to json file
+                    WriteExpiredToJson();
+                }
             }
 
             catch (Exception ex)
@@ -145,6 +154,27 @@ namespace MiryPharma
                 // System.Diagnostics.Trace 
                 // a way to log all these exceptions in a file
             }
+        }
+
+        private void WriteExpiredToJson() 
+        {
+            List<Drug> expiredDrugs = new List<Drug>();
+            foreach (Drug drug in drugs) 
+            {
+                if (drug.ExpiryDate < DateTime.Today) 
+                {
+                    expiredDrugs.Add(drug);
+                }
+            }
+            // serialize JSON directly to a file
+            
+            using (StreamWriter file = File.CreateText(jsonFileExpiredMed))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, expiredDrugs);
+            }
+
+            // this calls Dispose() on the sw and it is closing the file
         }
 
         private void HomePharmaForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -173,22 +203,19 @@ namespace MiryPharma
                         $"\n"
                         );
                 }
+
                 string emailAddress = "miry@contoso.com";
                 string subject = $"My home pharmacy has {drugs.Count} medicines on stock.";
                 string body = stringBuilder.ToString();
                 string mailto = string.Format($"mailto:{emailAddress}?subject={subject}&body={body}");
-                mailto = Uri.EscapeUriString(mailto);
-
+                mailto = Uri.EscapeUriString(mailto); // for new lines in body
 
                 System.Diagnostics.Process.Start(mailto);
             }
-
             else 
             {
                 MessageBox.Show($"You don't have any medicine on stock!");
             }
-
-
         }
     }
 }

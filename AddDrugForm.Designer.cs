@@ -133,6 +133,8 @@ namespace MiryPharma
             this.ExpirationDateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ExpirationDateTimePicker1.Location = new System.Drawing.Point(181, 152);
             this.ExpirationDateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.ExpirationDateTimePicker1.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.ExpirationDateTimePicker1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.ExpirationDateTimePicker1.Name = "ExpirationDateTimePicker1";
             this.ExpirationDateTimePicker1.Size = new System.Drawing.Size(423, 28);
             this.ExpirationDateTimePicker1.TabIndex = 6;
