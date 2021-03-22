@@ -12,6 +12,7 @@ namespace MiryPharma
 {
     public partial class ViewDrugForm : Form
     {
+        
         private List<Drug> drugs;
         public ViewDrugForm(List<Drug> drugs)
         {
@@ -47,6 +48,17 @@ namespace MiryPharma
                         MessageBox.Show($"Oops, unable to delete Drug.\n{ex.Message}");
                     }
                 }
+
+            }
+
+
+            if (DrugViewDataGridView1.Columns[e.ColumnIndex].Name == "DrugEdit")
+            {
+                Drug drg = (Drug)this.DrugViewDataGridView1.CurrentCell.OwningRow.DataBoundItem;
+                
+                AddDrugForm editDrug = new AddDrugForm(drg);
+                editDrug.ShowDialog();
+              
 
             }
         }
@@ -103,7 +115,13 @@ namespace MiryPharma
             //column7.CellTemplate.Style.ForeColor = Color.White;
             DrugViewDataGridView1.Columns.Add(column5);
 
-            
+            DataGridViewButtonColumn column6 = new DataGridViewButtonColumn();
+            column6.Name = "DrugEdit";
+            column6.HeaderText = "Edit";
+            column6.UseColumnTextForButtonValue = true;
+            column6.Text = "Edit";
+            DrugViewDataGridView1.Columns.Add(column6);
+
         }
 
 
