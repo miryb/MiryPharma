@@ -20,7 +20,8 @@ namespace MiryPharma
         {
             this.drugs = drugs;
             InitializeComponent();
-           
+            defaultsAddDrug();
+
         }
 
         public AddDrugForm(Drug drg)
@@ -28,6 +29,7 @@ namespace MiryPharma
             editMode = true;
             this.drug = drg;
             InitializeComponent();
+            defaultsAddDrug();
 
             // set the fields with the values of the current Drug
             this.DrugNameTextBox.Text = drg.Name;
@@ -39,8 +41,6 @@ namespace MiryPharma
             this.DrugAllergicCheckBox2.Checked = drg.Allergic;
             this.DrugRequiresPrescriptionCheckBox3.Checked = drg.RequiresPrescription;
             this.DrugPrescriptionAvailableCheckBox4.Checked = drg.PrescriptionAvailable;
-
-            // the comboboxes don't work
             this.DrugQtyUnitsComboBox1.SelectedItem = drg.QuantityUnits;
             this.DrugMedTypeComboBox1.SelectedItem = drg.DrugMedType;
             this.DrugAgeComboBox1.SelectedItem = drg.DrugAgeCategory;
@@ -69,7 +69,7 @@ namespace MiryPharma
 
         private void AddDrugForm_Load(object sender, EventArgs e)
         {
-            defaultsAddDrug();
+
         }
 
         private bool ValidateForm()
