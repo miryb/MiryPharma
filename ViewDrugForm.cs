@@ -48,7 +48,6 @@ namespace MiryPharma
                         MessageBox.Show($"Oops, unable to delete Drug.\n{ex.Message}");
                     }
                 }
-
             }
 
 
@@ -57,8 +56,13 @@ namespace MiryPharma
                 Drug drg = (Drug)this.DrugViewDataGridView1.CurrentCell.OwningRow.DataBoundItem;
                 
                 AddDrugForm editDrug = new AddDrugForm(drg);
-                editDrug.ShowDialog();
-              
+                var actionResult = editDrug.ShowDialog();
+
+                if (actionResult == DialogResult.OK || actionResult == DialogResult.Cancel)
+                {
+                    DrugViewDataGridView1.DataSource = null;
+                    DrugViewDataGridView1.DataSource = drugs;
+                }
 
             }
         }

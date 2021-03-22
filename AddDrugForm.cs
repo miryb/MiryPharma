@@ -12,7 +12,7 @@ namespace MiryPharma
 {
     public partial class AddDrugForm : Form
     {
-        public bool editMode;
+        private bool editMode;
         private List<Drug> drugs;
         private Drug drug;
 
@@ -127,6 +127,7 @@ namespace MiryPharma
 
                  // Message box with product added successfully
                  MessageBox.Show($"Medicine \"{drug1.Name}\" added successfully");
+                
 
             }
         }
@@ -190,6 +191,8 @@ namespace MiryPharma
 
                 // Message box with product added successfully
                 MessageBox.Show($"Medicine \"{drug.Name}\" edited successfully");
+
+                this.Close();
 
             }
         }
