@@ -39,7 +39,6 @@ namespace MiryPharma
             this.ExpirationDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.DrugActiveIngredientLabel = new System.Windows.Forms.Label();
             this.DrugActiveIngredientTextBox1 = new System.Windows.Forms.TextBox();
-            this.SymptomsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.SymptomsLabel = new System.Windows.Forms.Label();
             this.DrugMedType = new System.Windows.Forms.Label();
             this.DrugMedTypeComboBox1 = new System.Windows.Forms.ComboBox();
@@ -53,7 +52,6 @@ namespace MiryPharma
             this.DrugFormatLabel = new System.Windows.Forms.Label();
             this.ErrorValidateLabel = new System.Windows.Forms.Label();
             this.ResetButton1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AddDrugButton = new System.Windows.Forms.Button();
             this.MiscellanousGroupBox1 = new System.Windows.Forms.GroupBox();
             this.DrugPrescriptionAvailableCheckBox4 = new System.Windows.Forms.CheckBox();
@@ -61,8 +59,10 @@ namespace MiryPharma
             this.DrugAllergicCheckBox2 = new System.Windows.Forms.CheckBox();
             this.DrugAntibioticCheckBox1 = new System.Windows.Forms.CheckBox();
             this.DrugFirstTimeUseCheckBox1 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.DrugSymptomsListBox1 = new System.Windows.Forms.ListBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.MiscellanousGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // DrugNameLabel
@@ -160,18 +160,6 @@ namespace MiryPharma
             this.DrugActiveIngredientTextBox1.Size = new System.Drawing.Size(423, 28);
             this.DrugActiveIngredientTextBox1.TabIndex = 12;
             this.DrugActiveIngredientTextBox1.Text = "-";
-            // 
-            // SymptomsCheckedListBox
-            // 
-            this.SymptomsCheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SymptomsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SymptomsCheckedListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SymptomsCheckedListBox.FormattingEnabled = true;
-            this.SymptomsCheckedListBox.Location = new System.Drawing.Point(644, 147);
-            this.SymptomsCheckedListBox.Margin = new System.Windows.Forms.Padding(4);
-            this.SymptomsCheckedListBox.Name = "SymptomsCheckedListBox";
-            this.SymptomsCheckedListBox.Size = new System.Drawing.Size(302, 570);
-            this.SymptomsCheckedListBox.TabIndex = 15;
             // 
             // SymptomsLabel
             // 
@@ -324,16 +312,6 @@ namespace MiryPharma
             this.ResetButton1.UseVisualStyleBackColor = false;
             this.ResetButton1.Click += new System.EventHandler(this.ResetButton1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::MiryPharma.Properties.Resources._7d9e710c39ca635b1981cf88c8de7886;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(823, 147);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(123, 95);
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
             // AddDrugButton
             // 
             this.AddDrugButton.BackColor = System.Drawing.Color.Transparent;
@@ -431,15 +409,35 @@ namespace MiryPharma
             this.DrugFirstTimeUseCheckBox1.Text = "First time using it";
             this.DrugFirstTimeUseCheckBox1.UseVisualStyleBackColor = true;
             // 
+            // DrugSymptomsListBox1
+            // 
+            this.DrugSymptomsListBox1.FormattingEnabled = true;
+            this.DrugSymptomsListBox1.ItemHeight = 19;
+            this.DrugSymptomsListBox1.Location = new System.Drawing.Point(657, 143);
+            this.DrugSymptomsListBox1.Name = "DrugSymptomsListBox1";
+            this.DrugSymptomsListBox1.Size = new System.Drawing.Size(280, 574);
+            this.DrugSymptomsListBox1.TabIndex = 32;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::MiryPharma.Properties.Resources._7d9e710c39ca635b1981cf88c8de7886;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(814, 143);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(123, 95);
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
             // AddDrugForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(966, 759);
+            this.ClientSize = new System.Drawing.Size(996, 759);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.DrugSymptomsListBox1);
             this.Controls.Add(this.ResetButton1);
             this.Controls.Add(this.ErrorValidateLabel);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AddDrugButton);
             this.Controls.Add(this.MiscellanousGroupBox1);
             this.Controls.Add(this.DrugFormatComboBox1);
@@ -452,7 +450,6 @@ namespace MiryPharma
             this.Controls.Add(this.DrugAgeLabel);
             this.Controls.Add(this.DrugMedTypeComboBox1);
             this.Controls.Add(this.SymptomsLabel);
-            this.Controls.Add(this.SymptomsCheckedListBox);
             this.Controls.Add(this.DrugActiveIngredientTextBox1);
             this.Controls.Add(this.DrugActiveIngredientLabel);
             this.Controls.Add(this.DrugMedType);
@@ -471,9 +468,9 @@ namespace MiryPharma
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add your medicine";
             this.Load += new System.EventHandler(this.AddDrugForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.MiscellanousGroupBox1.ResumeLayout(false);
             this.MiscellanousGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,7 +487,6 @@ namespace MiryPharma
         private System.Windows.Forms.DateTimePicker ExpirationDateTimePicker1;
         private System.Windows.Forms.Label DrugActiveIngredientLabel;
         private System.Windows.Forms.TextBox DrugActiveIngredientTextBox1;
-        private System.Windows.Forms.CheckedListBox SymptomsCheckedListBox;
         private System.Windows.Forms.Label SymptomsLabel;
         private System.Windows.Forms.CheckBox DrugFirstTimeUseCheckBox1;
         private System.Windows.Forms.Label DrugMedType;
@@ -509,8 +505,9 @@ namespace MiryPharma
         private System.Windows.Forms.CheckBox DrugAllergicCheckBox2;
         private System.Windows.Forms.CheckBox DrugAntibioticCheckBox1;
         private System.Windows.Forms.Button AddDrugButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label ErrorValidateLabel;
         private System.Windows.Forms.Button ResetButton1;
+        private System.Windows.Forms.ListBox DrugSymptomsListBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

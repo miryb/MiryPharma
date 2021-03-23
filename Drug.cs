@@ -132,8 +132,10 @@ namespace MiryPharma
         [JsonConverter(typeof(StringEnumConverter))]
         public DrugScopeEnum DrugScope { get; set; }
         public SymptomsEnum Symptoms { get; set; }
+        public List<SymptomsEnum> symptomsEnumList { get; set; }
+
         public string symptomsStr { get; set; }
-        // public string AdditionalComments { get; set; }
+        // public string AdditionalComments { get; set; } //not enough patience
 
         public Drug(string name, int qty, QuantityUnitsEnum qtyUnits, DateTime expiration) 
         {

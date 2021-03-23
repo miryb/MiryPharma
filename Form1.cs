@@ -153,6 +153,7 @@ namespace MiryPharma
             {
                 // System.Diagnostics.Trace 
                 // a way to log all these exceptions in a file
+                MessageBox.Show($"{ex.Message} \r\n {ex.StackTrace}");
             }
         }
 
