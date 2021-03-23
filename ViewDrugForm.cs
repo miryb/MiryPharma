@@ -56,7 +56,7 @@ namespace MiryPharma
                 Drug drg = (Drug)this.DrugViewDataGridView1.CurrentCell.OwningRow.DataBoundItem;
                 
                 AddDrugForm editDrug = new AddDrugForm(drg);
-                var actionResult = editDrug.ShowDialog();
+                var actionResult = editDrug.ShowDialog(this);
 
                 if (actionResult == DialogResult.OK || actionResult == DialogResult.Cancel)
                 {

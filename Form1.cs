@@ -22,9 +22,10 @@ namespace MiryPharma
         private List<Drug> drugs = new List<Drug>();
 
         // JSON Files Paths
-        private string jsonFilePath = @"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs.json";
-        private string jsonFileCopyPath = @"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs-copy.json";
-        private string jsonFileExpiredMed = @"C:\Users\mireb\source\repos\MiryPharma\DrugsFiles\drugs-expired.json";
+        private static string jsonFilePathDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MiryPharma");
+        private static string jsonFilePath = Path.Combine(jsonFilePathDir, "drugs.json");
+        private string jsonFileCopyPath = Path.Combine(jsonFilePathDir, "drugs-copy.json");
+        private string jsonFileExpiredMed = Path.Combine(jsonFilePathDir, "drugs-expired.json");
 
 
         public HomePharmaForm()
@@ -88,7 +89,7 @@ namespace MiryPharma
             if (drugs.Count > 0)
             {
                 ViewDrugForm viewDrug = new ViewDrugForm(drugs);
-                viewDrug.ShowDialog();
+                viewDrug.ShowDialog(this);
             }
             else 
             {
@@ -116,15 +117,28 @@ namespace MiryPharma
 
                 // Read file into a string and deserialize JSON to a type
                 // ReadAllText closes the file automatically
+
+                // for Directory not found exception
+                if (!Directory.Exists(jsonFilePathDir))
+                {
+                    Directory.CreateDirectory(jsonFilePathDir);
+                }
+
+
                 drugs = JsonConvert.DeserializeObject<List<Drug>>(File.ReadAllText(jsonFilePath));
-                
+
                 MessageBox.Show($"{drugs.Count} meds loaded");
+            }
+
+            catch (FileNotFoundException)
+            {
+                // expected to fail but there is no point in doing something 
             }
 
             catch (Exception ex)
             {
-                // expected to fail if there is no file but no point in doing smth
-                // MessageBox.Show($"{ex.Message} \r\n {ex.StackTrace}");
+                // catching the others
+                MessageBox.Show($"{ex.Message} \n {ex.GetType().FullName}");
             }
         }
 
@@ -134,6 +148,10 @@ namespace MiryPharma
             {
                 if (drugs.Count > 0)
                 {
+                    if (!Directory.Exists(jsonFilePathDir)) 
+                    {
+                        Directory.CreateDirectory(jsonFilePathDir); 
+                    }
                     // Serialization = writing an object to a string 
 
                     // Serialize JSON to a string and then write string to a file

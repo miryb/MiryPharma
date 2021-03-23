@@ -68,6 +68,7 @@ namespace MiryPharma
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewDrugForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View your medicine";
             this.Load += new System.EventHandler(this.ViewDrugForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DrugViewDataGridView1)).EndInit();
