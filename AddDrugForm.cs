@@ -47,7 +47,7 @@ namespace MiryPharma
             this.DrugTakingComboBox1.SelectedItem = drg.DrugHowToTake;
             this.DrugFormatComboBox1.SelectedItem = drg.DrugFormat;
 
-            // Set Selected Items on DrugSymptomsListBox1.Se
+            // Set Selected Items on DrugSymptomsListBox1
             var selectedItems = drg.symptomsEnumList;
             selectedItems.Select(sd => DrugSymptomsListBox1.Items.IndexOf(sd)).Where(i => i >= 0).ToList().ForEach(i => this.DrugSymptomsListBox1.SetSelected(i, true));
         }
@@ -80,8 +80,6 @@ namespace MiryPharma
 
         private void AddDrug()
         {
-            
-
             if (ValidateForm())
             {
                 Drug drug1 = new Drug();
@@ -101,25 +99,6 @@ namespace MiryPharma
                 drug1.RequiresPrescription = this.DrugRequiresPrescriptionCheckBox3.Checked;
                 drug1.PrescriptionAvailable = this.DrugPrescriptionAvailableCheckBox4.Checked;
                 drug1.symptomsEnumList = (this.DrugSymptomsListBox1.SelectedItems).Cast<SymptomsEnum>().ToList();
-
-                // current logic for ListBox and CheckedListBox - "gross"
-                
-                List<SymptomsEnum> selectedSymptoms = new List<SymptomsEnum>();
-
-                /*
-                foreach (SymptomsEnum symptom in SymptomsCheckedListBox.CheckedItems)
-                {
-                    selectedSymptoms.Add(symptom);
-                }
-                drug1.symptomsStr = string.Join(",", selectedSymptoms);
-                */
-
-                foreach (SymptomsEnum symptom in DrugSymptomsListBox1.SelectedItems) 
-                {
-                    selectedSymptoms.Add(symptom);
-                }
-                drug1.symptomsStr = string.Join(",", selectedSymptoms);
-
 
                 // add new item to the list
                 this.drugs.Add(drug1);
@@ -181,25 +160,12 @@ namespace MiryPharma
                 this.drug.PrescriptionAvailable = this.DrugPrescriptionAvailableCheckBox4.Checked;
                 this.drug.symptomsEnumList = (this.DrugSymptomsListBox1.SelectedItems).Cast<SymptomsEnum>().ToList();
 
-
-                // current logic with ListBox CheckedListBox
-                
-                List<SymptomsEnum> selectedSymptoms = new List<SymptomsEnum>();
-                foreach (SymptomsEnum symptom in DrugSymptomsListBox1.SelectedItems)
-                {
-                    selectedSymptoms.Add(symptom);
-                }
-                drug.symptomsStr = string.Join(",", selectedSymptoms);
-                
-
                 // Message box with product added successfully
                 MessageBox.Show($"Medicine \"{drug.Name}\" edited successfully");
 
                 this.Close();
-
             }
         }
-
 
         private void ResetForm()
         {
@@ -225,12 +191,6 @@ namespace MiryPharma
             this.DrugAllergicCheckBox2.Checked = false;
             this.DrugAntibioticCheckBox1.Checked = false;
 
-            // Reset CheckedItems in CheckedListBox
-            /*
-            this.SymptomsCheckedListBox.DataSource = null;
-            this.SymptomsCheckedListBox.DataSource = Enum.GetValues(typeof(SymptomsEnum));
-            this.SymptomsCheckedListBox.SelectedIndex = (int)SymptomsEnum.Other;
-            */
 
             // Reset selected Items in ListBox
             this.DrugSymptomsListBox1.ClearSelected(); 
@@ -253,8 +213,7 @@ namespace MiryPharma
             // Binding components or setting defaults 
             DrugQtyUnitsComboBox1.DataSource = Enum.GetValues(typeof(QuantityUnitsEnum));
             ExpirationDateTimePicker1.Value = DateTime.Today.AddMonths(6);
-          //  SymptomsCheckedListBox.DataSource = Enum.GetValues(typeof(SymptomsEnum));
-          //  SymptomsCheckedListBox.SelectedIndex = (int)SymptomsEnum.Other;
+
             DrugMedTypeComboBox1.DataSource = Enum.GetValues(typeof(DrugMedTypeEnum));
             DrugScopeComboBox1.DataSource = Enum.GetValues(typeof(DrugScopeEnum));
             DrugTakingComboBox1.DataSource = Enum.GetValues(typeof(DrugHowToTakeEnum));

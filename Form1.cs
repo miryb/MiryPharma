@@ -55,7 +55,7 @@ namespace MiryPharma
         {
             myTimer = new Timer();
             myTimer.Tick += new EventHandler(RollImagesBanner);
-            myTimer.Interval = 3000;
+            myTimer.Interval = 5000;
             myTimer.Start();
         }
 
@@ -79,14 +79,12 @@ namespace MiryPharma
 
         private void AddDrugsButton_Click(object sender, EventArgs e)
         {
-            // MessageBox.Show("Work in progress.");
             AddDrugForm addDrug = new AddDrugForm(drugs);
             addDrug.ShowDialog();
         }
 
         private void ViewDrugsButton_Click(object sender, EventArgs e)
         {
-
             if (drugs.Count > 0)
             {
                 ViewDrugForm viewDrug = new ViewDrugForm(drugs);
