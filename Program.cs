@@ -15,6 +15,7 @@ namespace MiryPharma
         static void Main()
         {
             // Comment
+            // Shane is helping me
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HomePharmaForm());
